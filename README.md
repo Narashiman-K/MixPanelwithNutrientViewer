@@ -1,6 +1,6 @@
-# Nutrient PDF Viewer Example (Vite + React)
+# Nutrient PDF Viewer with Mixpanel event tracker Example (Vite + React)
 
-This project demonstrates how to integrate the [Nutrient (PSPDFKit) Web SDK](https://www.nutrient.io/sdk/web/) into a React application using [Vite.js](https://vitejs.dev/). It also includes advanced event tracking with [Mixpanel](https://mixpanel.com/) and a built-in debug panel for real-time analytics.
+This project demonstrates how to integrate the [Nutrient (PSPDFKit) Web SDK](https://www.nutrient.io/sdk/web/) with MixPanel to include advanced event tracking with [Mixpanel](https://mixpanel.com/) and a built-in debug panel for real-time analytics.
 
 ---
 
@@ -59,6 +59,9 @@ npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+![chrome_sZfkFFsokb](https://github.com/user-attachments/assets/c0c03ee2-a4a4-48ba-aa52-517912a3bd9c)
+
 
 ### Production Build
 
