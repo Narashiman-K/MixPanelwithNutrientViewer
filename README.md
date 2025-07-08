@@ -1,24 +1,26 @@
-# Nutrient PDF Viewer with Mixpanel event tracker Example (Vite + React)
+# Nutrient PDF Viewer Example (Vite + React)
 
-This project demonstrates how to integrate the [Nutrient (PSPDFKit) Web SDK](https://www.nutrient.io/sdk/web/) with MixPanel to include advanced event tracking with [Mixpanel](https://mixpanel.com/) and a built-in debug panel for real-time analytics.
+This project demonstrates how to integrate the [Nutrient (PSPDFKit) Web SDK](https://www.nutrient.io/sdk/web/) with advanced event tracking [Mixpanel](https://mixpanel.com/) and a built-in debug panel for real-time analytics.
 
 ---
 
 ## Features
 
-- 📄 **View and Annotate PDFs** using the Nutrient (PSPDFKit) Web SDK.
-- 📝 **Track User Interactions** (annotations, navigation, zoom, search, etc.) with Mixpanel.
-- 🛠️ **Debug Panel** for live inspection of SDK events and analytics.
-- ⚡ **Fast Development** with Vite and React 18.
-- 🔒 **Environment-based configuration** for API keys and tokens.
+- **View and Annotate PDFs** using the Nutrient (PSPDFKit) Web SDK
+- **Comprehensive Event Tracking** - All PDF interactions tracked via Mixpanel
+- **Real-time Debug Panel** for live inspection of SDK events and analytics
+- **Fast Development** with Vite and React 18
+- **Environment-based Configuration** for API keys and tokens
+- **Accessibility Compliant** with keyboard navigation support
+- **Responsive Design** for desktop and mobile devices
 
 ---
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or newer recommended)
-- A valid Nutrient (PSPDFKit) Web SDK license key
-- A Mixpanel project token
+- A valid Nutrient (PSPDFKit) Web SDK license key ([Get one here](https://www.nutrient.io/try/))
+- A Mixpanel project token ([Create free account](https://mixpanel.com/register/))
 
 ---
 
@@ -27,8 +29,8 @@ This project demonstrates how to integrate the [Nutrient (PSPDFKit) Web SDK](htt
 ### 1. Clone the Repository
 
 ```sh
-git clone <your-repo-url>
-cd trialTryOuts/nutrient-vite-cdn-MixpanelRecordingwebviewer
+git clone https://github.com/PSPDFKit/awesome-nutrient.git
+cd ...web/miscellaneous/mixpanel-web-analytics
 ```
 
 ### 2. Install Dependencies
@@ -39,7 +41,7 @@ npm install
 
 ### 3. Configure Environment Variables
 
-Create a `.env` file in the project root (already present in this repo):
+Create a `.env` file in the project root:
 
 ```properties
 VITE_MIXPANEL_TOKEN=your-mixpanel-token
@@ -47,6 +49,10 @@ VITE_lkey=your-nutrient-license-key
 ```
 
 Replace the values with your actual Mixpanel token and Nutrient SDK license key.
+
+Where to find these:
+ - Mixpanel Token: Project Settings → Project Details → Project Token
+ - Nutrient License: Your PSPDFKit/Nutrient account dashboard
 
 ---
 
@@ -59,9 +65,6 @@ npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-![chrome_sZfkFFsokb](https://github.com/user-attachments/assets/c0c03ee2-a4a4-48ba-aa52-517912a3bd9c)
-
 
 ### Production Build
 
@@ -78,23 +81,60 @@ Preview your build at [http://localhost:4173](http://localhost:4173).
 
 - **Upload a PDF**: Click "Choose PDF Document" to load your own PDF.
 - **Interact**: Navigate pages, zoom, annotate, search, fill forms, etc.
-- **Debug Panel**: Click the "🔧 SDK Events" toggle (bottom right in dev mode) to view real-time event analytics and statistics.
+- **Debug Panel**: (Development Only)
+  - Click the "SDK Events" button (bottom right) to open the debug panel
+  - View real-time event statistics and recent activity
+  - Test SDK connectivity and clear event logs
+  - Monitor all Mixpanel events as they're sent
 
 ---
+
+## Tracked Events
+  The application automatically tracks these user interactions:
+- **Navigation & Viewing**
+  - Page navigation and time spent per page
+  - Zoom level changes
+  - View mode changes (single/double page)
+  - Sidebar toggle events
+
+- **Annotations & Content**
+  - Annotation creation, editing, and deletion
+  - Text selection and highlighting
+  - Form field interactions
+  - Content editing operations
+
+- **Document Operations**
+  - Document loading and session tracking
+  - Search queries and results
+  - Print and export operations
+  - Undo/redo actions
+
+- **Advanced Interactions**
+  - Bookmark management
+  - Comment creation and updates
+  - Digital signature creation
+  - Error tracking and performance metrics
+
 
 ## Project Structure
 
 ```
 src/
-  app.jsx                # Main React app
-  components/
-    pdf-viewer-component.jsx  # Nutrient SDK integration & event tracking
-    debug-panel.jsx           # Live Mixpanel/SDK event debug panel
-  services/
-    mixpanel.js               # Mixpanel analytics integration
+├── app.jsx                           # Main React application
+├── components/
+│   ├── pdf-viewer-component.jsx      # Nutrient SDK integration & event tracking
+│   └── debug-panel.jsx               # Live analytics debug panel
+├── services/
+│   └── mixpanel.js                   # Mixpanel analytics service
+├── app.css                           # Application styles
+└── main.jsx                          # React entry point
 public/
-  document.pdf           # Default sample PDF
-.env                     # Environment variables (license keys, tokens)
+├── document.pdf                      # Default sample PDF
+└── index.html                        # HTML template
+.env                                  # Environment variables (not in repo)
+package.json                          # Dependencies and scripts
+vite.config.js                        # Vite configuration
+
 ```
 
 ---
@@ -123,7 +163,8 @@ public/
   Check your Mixpanel token in `.env` and browser console for debug logs.
 - **PDF not displaying?**  
   Confirm the PDF file is valid and CORS is not blocking access.
-
+- **Events not logging in MixPanel?**
+  Check if the network to MixPanel is not getting blocked to the api.mixpanel.com
 ---
 
 ## License
@@ -140,15 +181,12 @@ See [Nutrient SDK License](https://www.nutrient.io/legal/Nutrient_SDK_User_Evalu
 - For issues with this example, open an issue in your repository.
 
 ---
+## Disclaimer
 
-## Credits
+This software is provided as-is, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
 
-- [Nutrient (PSPDFKit)](https://www.nutrient.io/)
-- [Mixpanel](https://mixpanel.com/)
-- [Vite](https://vitejs.dev/)
-- [React](https://react.dev/)
-- [Author](https://www.linkedin.com/in/narashimank/)
+The user is solely responsible for determining the appropriateness of using or redistributing the software and assumes any risks associated with the exercise of permissions under the license.
 
----
+## Author
 
-Enjoy exploring PDF analytics with Nutrient
+[Narashiman Krishnamurthy](https://www.linkedin.com/in/narashimank/)
